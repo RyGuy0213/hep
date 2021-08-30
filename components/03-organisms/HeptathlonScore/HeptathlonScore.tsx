@@ -3,7 +3,6 @@ import styles from './HeptathlonScore.module.scss';
 import TFEventScore from '../../02-molecules/TFEventScore/TFEventScore';
 import { calcPoints } from '../../../utils/hepcalc/calcPoints/calcPoints';
 import { calcPerf } from '../../../utils/hepcalc/calcPerf/calcPerf';
-import { twoDecimalPlaces } from '../../../utils/number/number';
 
 type IndividualEventScoreProps = {
   perf: string;
@@ -45,41 +44,6 @@ export type HeptathlonScoreProps = {
   eventScores?: EventScoresProps;
 };
 
-const unitsInputToNumber = (eventId: EventIdProps, perf: string): number => {
-  if (eventId == 'hj' || eventId == 'lj') {
-    return parseFloat(perf) * 100;
-  }
-
-  if (eventId == 'r100h' || eventId == 'r200m' || eventId == 'r800m') {
-    const colonPos = perf.indexOf(':');
-    const minutes = parseFloat(
-      colonPos > 0 ? perf.substring(0, colonPos) : '0'
-    );
-    const seconds = parseFloat(
-      colonPos > 0 ? perf.substring(colonPos + 1) : perf
-    );
-    return minutes * 60 + seconds;
-  }
-
-  return parseFloat(perf);
-};
-
-const unitsNumberToDisplay = (eventId: EventIdProps, perf: number): string => {
-  if (eventId == 'hj' || eventId == 'lj') {
-    return `${twoDecimalPlaces(perf / 100)}`;
-  }
-  if (eventId == 'r100h' || eventId == 'r200m' || eventId == 'r800m') {
-    const minutes = Math.floor(perf / 60);
-    const seconds = twoDecimalPlaces(perf % 60);
-    if (minutes > 0) {
-      return `${minutes}:${seconds}`;
-    }
-    return `${seconds}`;
-  }
-
-  return `${twoDecimalPlaces(perf)}`;
-};
-
 const scoresInitializer = (
   eventScores?: EventScoresProps
 ): EventScoresProps => {
@@ -107,23 +71,19 @@ const scoresReducer = (
     // Calculate points from performance
     if (perf !== undefined) {
       updatedScore.perf = perf;
-      const calculatedPoints = calcPoints(
-        eventId,
-        unitsInputToNumber(eventId, perf)
-      );
-      updatedScore.points = isNaN(calculatedPoints)
-        ? '0'
-        : calculatedPoints.toString();
+      updatedScore.points = calcPoints(eventId, perf);
     }
 
     // Calculate performance from points
     else if (points !== undefined) {
-      const parsed = parseFloat(points);
-      updatedScore.perf = unitsNumberToDisplay(
-        eventId,
-        calcPerf(eventId, parsed)
-      );
-      updatedScore.points = isNaN(parsed) ? '' : parsed.toString();
+      const calculatedPerf = calcPerf(eventId, points);
+      if (parseFloat(calculatedPerf) < 0) {
+        updatedScore.perf = '0';
+        updatedScore.points = '0';
+      } else {
+        updatedScore.perf = calculatedPerf;
+        updatedScore.points = points;
+      }
     }
 
     const updatedState = { ...state };
@@ -143,7 +103,12 @@ const HeptathlonScore: FC<HeptathlonScoreProps> = ({ eventScores }) => {
 
   const totalScore =
     (state?.r100h?.points ? parseInt(state.r100h.points) : 0) +
-    (state?.hj?.points ? parseInt(state.hj.points) : 0);
+    (state?.hj?.points ? parseInt(state.hj.points) : 0) +
+    (state?.sp?.points ? parseInt(state.sp.points) : 0) +
+    (state?.r200m?.points ? parseInt(state.r200m.points) : 0) +
+    (state?.lj?.points ? parseInt(state.lj.points) : 0) +
+    (state?.jt?.points ? parseInt(state.jt.points) : 0) +
+    (state?.r800m?.points ? parseInt(state.r800m.points) : 0);
 
   const updateScore: UpdateIndividualEventScoreFunctionProps = ({
     eventId,
