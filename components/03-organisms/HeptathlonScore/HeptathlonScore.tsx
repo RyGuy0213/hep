@@ -1,5 +1,4 @@
 import { useReducer, FC } from 'react';
-import styles from './HeptathlonScore.module.scss';
 import TFEventScore from '../../02-molecules/TFEventScore/TFEventScore';
 import { calcPoints } from '../../../utils/hepcalc/calcPoints/calcPoints';
 import { calcPerf } from '../../../utils/hepcalc/calcPerf/calcPerf';

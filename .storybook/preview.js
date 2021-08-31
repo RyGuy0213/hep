@@ -1,3 +1,4 @@
+import '../styles/normalize.css';
 import '../uswds/css/styles.css';
 
 export const parameters = {
