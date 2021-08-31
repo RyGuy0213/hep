@@ -23,6 +23,7 @@ const WhatIs: NextPage = () => {
           </ul>
         </SummaryBox>
       </div>
+
       <img
         alt="Heather Miller-Koch hurdling"
         src="https://www.gannett-cdn.com/-mm-/e1d78d18d18c0e71d5c7c4a0350b598687f50fe1/c=0-50-534-352/local/-/media/2017/01/27/StCloud/StCloud/636211307076450382-miller-koch-2.jpg?width=534&height=302&fit=crop&format=pjpg&auto=webp"
