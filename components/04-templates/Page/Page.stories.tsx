@@ -10,3 +10,4 @@ export default {
 export const Default: ComponentStory<typeof Page> = () => {
   return <Page>Page Content</Page>;
 };
+Default.storyName = 'Page';

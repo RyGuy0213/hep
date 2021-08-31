@@ -10,3 +10,4 @@ export default {
 export const Default: ComponentStory<typeof SiteHeader> = () => {
   return <SiteHeader />;
 };
+Default.storyName = 'SiteHeader';

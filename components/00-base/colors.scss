@@ -1,0 +1,15 @@
+$color-dark: #565c65;
+$color-light: #fefefe;
+$color-white: #fff;
+
+@mixin light-box {
+  background: $color-white;
+  border: 1px solid $color-dark;
+  color: $color-dark;
+}
+
+@mixin dark-box {
+  background: $color-dark;
+  border: 1px solid $color-dark;
+  color: $color-light;
+}

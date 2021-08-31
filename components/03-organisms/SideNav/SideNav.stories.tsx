@@ -21,3 +21,4 @@ const links = [
 export const Default: ComponentStory<typeof SideNav> = () => {
   return <SideNav links={links} />;
 };
+Default.storyName = 'SideNav';

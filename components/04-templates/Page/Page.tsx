@@ -34,13 +34,11 @@ const Page: FC<PageProps> = ({ children, id }) => {
   return (
     <div>
       <SiteHeader />
-      <div
-        className={`${styles['main-content']} padding-5 maxw-desktop justify-center margin-left-auto margin-right-auto`}
-      >
-        <div className="flex-1 margin-right-5">
+      <div className={styles['content']}>
+        <div className={styles['side-nav-wrap']}>
           <SideNav links={links} currentPageId={id} />
         </div>
-        <div className="flex-4">{children}</div>
+        <div className={styles['main-content']}>{children}</div>
       </div>
     </div>
   );

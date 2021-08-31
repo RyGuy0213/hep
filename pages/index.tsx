@@ -18,13 +18,13 @@ const Home: NextPage = () => {
         reality was one of the greatest joys of my life. It will remain that way
         for years to come.
       </p>
-      <p>
+      <p className="line-height-sans-6">
         Our preparation took us many places. We lived in New York City, Southern
         California, and the Twin Cities of Minnesota. We traveled to Germany,
         Austria, Canada, Colombia, and Brazil. We also saw much of the United
         States.
       </p>
-      <p>
+      <p className="line-height-sans-6">
         The heptathlon changed my life, and I want to tell you more about it!
       </p>
     </Page>

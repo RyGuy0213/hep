@@ -16,3 +16,4 @@ export const Default: ComponentStory<typeof HeptathlonScore> = () => {
   };
   return <HeptathlonScore eventScores={eventScores} />;
 };
+Default.storyName = 'HeptathlonScore';

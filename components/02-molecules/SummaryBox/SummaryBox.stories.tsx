@@ -25,3 +25,4 @@ export const Default: ComponentStory<typeof SummaryBox> = () => {
     </SummaryBox>
   );
 };
+Default.storyName = 'SummaryBox';

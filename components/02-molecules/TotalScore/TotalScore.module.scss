@@ -1,0 +1,30 @@
+@use '../../00-base/colors.scss';
+
+.total-score {
+  display: flex;
+  flex-direction: row;
+}
+
+.label {
+  @include colors.dark-box;
+
+  font-size: 1.5rem;
+  flex: 1;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.input-wrap {
+  @include colors.light-box;
+
+  font-size: 1.5rem;
+  flex: 3;
+  padding: 0.75rem;
+  
+  .input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    text-align: center;
+  }
+}

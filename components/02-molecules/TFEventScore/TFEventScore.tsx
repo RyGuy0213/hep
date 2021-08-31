@@ -4,6 +4,7 @@ import {
   EventIdProps,
   UpdateIndividualEventScoreFunctionProps,
 } from '../../03-organisms/HeptathlonScore/HeptathlonScore';
+import { useDivResizeRef } from '../../../customHooks/useDivResizeRef';
 
 export type TFEventScoreProps = {
   eventId: EventIdProps;
@@ -21,6 +22,14 @@ const getLabel = (eventId: EventIdProps): string => {
   return 'Meters';
 };
 
+const getContainerSizeName = (width: number | undefined): string => {
+  if (width && width > 320) {
+    return 'large';
+  }
+
+  return 'small';
+};
+
 const TFEventScore: FC<TFEventScoreProps> = ({
   eventId,
   eventName,
@@ -28,38 +37,47 @@ const TFEventScore: FC<TFEventScoreProps> = ({
   points,
   updateScore,
 }) => {
-  const inputWrapClass =
-    'grid-col flex-1 display-flex flex-row flex-no-wrap flex-align-center';
-  const labelClass = 'margin-right-1 flex-1';
-  const inputClass = 'bg-transparent border-0 padding-1 font-sans-lg maxw-card';
+  const [containerRef, containerSize] = useDivResizeRef();
 
   return (
-    <div className="border-05 radius-lg padding-2 text-base-darker">
-      <div className="font-sans-xl margin-bottom-2">{eventName}</div>
-      <div className="grid-row flex-row flex-wrap">
-        <div className={inputWrapClass}>
-          <label className={labelClass} htmlFor={`perf-${eventId}`}>
-            {getLabel(eventId)}
-          </label>
-          <input
-            className={inputClass}
-            name={`perf-${eventId}`}
-            type="text"
-            value={perf}
-            onChange={(e) => updateScore({ eventId, perf: e.target.value })}
-          />
-        </div>
-        <div className={inputWrapClass}>
-          <label className={labelClass} htmlFor={`points-${eventId}`}>
-            Points
-          </label>
-          <input
-            className={inputClass}
-            name={`points-${eventId}`}
-            type="text"
-            value={points}
-            onChange={(e) => updateScore({ eventId, points: e.target.value })}
-          />
+    <div
+      ref={containerRef}
+      data-event-container-size={getContainerSizeName(containerSize?.width)}
+      className={styles['tf-event-score']}
+    >
+      <div className={styles['wrap-all']}>
+        <div className={styles['event-name']}>{eventName}</div>
+        <div className={styles['score-inputs']}>
+          <div className={styles['score-input']}>
+            <label className={styles['label']} htmlFor={`perf-${eventId}`}>
+              {getLabel(eventId)}
+            </label>
+            <div className={styles['input-wrap']}>
+              <input
+                className={styles['input']}
+                name={`perf-${eventId}`}
+                type="text"
+                value={perf}
+                onChange={(e) => updateScore({ eventId, perf: e.target.value })}
+              />
+            </div>
+          </div>
+          <div className={styles['score-input']}>
+            <label className={styles['label']} htmlFor={`points-${eventId}`}>
+              Points
+            </label>
+            <div className={styles['input-wrap']}>
+              <input
+                className={styles['input']}
+                name={`points-${eventId}`}
+                type="text"
+                value={points}
+                onChange={(e) =>
+                  updateScore({ eventId, points: e.target.value })
+                }
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>

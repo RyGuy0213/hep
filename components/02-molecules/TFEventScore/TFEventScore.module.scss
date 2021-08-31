@@ -1,0 +1,70 @@
+@use '../../00-base/colors.scss';
+
+.tf-event-score {
+  border: 1px solid colors.$color-dark;
+  padding: 1rem;
+}
+
+.wrap-all {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.event-name {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: colors.$color-dark;
+}
+
+.score-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.score-input {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 150px;
+  text-align: center;
+
+  &:first-child {
+    margin-bottom: 1rem;
+  }
+
+  .label {
+    @include colors.dark-box;
+
+    flex: 1;
+    padding: 0.75rem;
+    font-size: 1.25rem;
+  }
+  
+  .input-wrap {
+    @include colors.light-box;
+
+    flex: 1;
+    padding: 0.75rem;
+    font-size: 1.5rem;
+    text-align: center;
+    
+    .input {
+      width: 100%;
+      border: none;
+    }
+  }
+}
+
+[data-event-container-size='large'] {
+  .score-inputs {
+    flex-direction: row;
+  }
+
+  .score-input {
+    &:first-child {
+      margin-right: 1rem;
+      margin-bottom: 0;
+    }
+  }
+}

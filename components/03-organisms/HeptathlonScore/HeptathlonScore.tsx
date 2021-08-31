@@ -1,7 +1,10 @@
 import { useReducer, FC } from 'react';
+import TotalScore from '../../02-molecules/TotalScore/TotalScore';
 import TFEventScore from '../../02-molecules/TFEventScore/TFEventScore';
 import { calcPoints } from '../../../utils/hepcalc/calcPoints/calcPoints';
 import { calcPerf } from '../../../utils/hepcalc/calcPerf/calcPerf';
+import { useDivResizeRef } from '../../../customHooks/useDivResizeRef';
+import styles from './HeptathlonScore.module.scss';
 
 type IndividualEventScoreProps = {
   perf: string;
@@ -41,6 +44,14 @@ type EventScoresProps = {
 
 export type HeptathlonScoreProps = {
   eventScores?: EventScoresProps;
+};
+
+const getContainerSizeName = (width: number | undefined): string => {
+  if (width && width > 600) {
+    return 'large';
+  }
+
+  return 'small';
 };
 
 const scoresInitializer = (
@@ -94,6 +105,8 @@ const scoresReducer = (
 };
 
 const HeptathlonScore: FC<HeptathlonScoreProps> = ({ eventScores }) => {
+  const [containerRef, containerSize] = useDivResizeRef();
+
   const [state, dispatch] = useReducer(
     scoresReducer,
     eventScores,
@@ -121,81 +134,83 @@ const HeptathlonScore: FC<HeptathlonScoreProps> = ({ eventScores }) => {
     });
   };
 
-  const eventWrapClass = 'margin-top-2';
-
   return (
-    <div className="maxw-mobile-lg">
-      <div className="border-05 bg-base-dark text-base-lightest radius-lg padding-3 bg-dark text-uppercase display-flex flex-row flex-no-wrap flex-align-center flex-justify">
-        <label htmlFor="total-score">Total Points</label>
-        <input
-          className="bg-transparent text-base-lightest border-0 padding-1 font-sans-xl text-align-right text-heavy maxw-mobile"
-          name="total-score"
-          disabled={true}
-          value={totalScore}
-        />
-      </div>
-      <div className={eventWrapClass}>
-        <TFEventScore
-          eventId="r100h"
-          eventName="100 Hurdles"
-          perf={state?.r100h?.perf}
-          points={state?.r100h?.points}
-          updateScore={updateScore}
-        />
-      </div>
-      <div className={eventWrapClass}>
-        <TFEventScore
-          eventId="hj"
-          eventName="High Jump"
-          perf={state?.hj?.perf}
-          points={state?.hj?.points}
-          updateScore={updateScore}
-        />
-      </div>
-      <div className={eventWrapClass}>
-        <TFEventScore
-          eventId="sp"
-          eventName="Shot Put"
-          perf={state?.sp?.perf}
-          points={state?.sp?.points}
-          updateScore={updateScore}
-        />
-      </div>
-      <div className={eventWrapClass}>
-        <TFEventScore
-          eventId="r200m"
-          eventName="200 Meters"
-          perf={state?.r200m?.perf}
-          points={state?.r200m?.points}
-          updateScore={updateScore}
-        />
-      </div>
-      <div className={eventWrapClass}>
-        <TFEventScore
-          eventId="lj"
-          eventName="Long Jump"
-          perf={state?.lj?.perf}
-          points={state?.lj?.points}
-          updateScore={updateScore}
-        />
-      </div>
-      <div className={eventWrapClass}>
-        <TFEventScore
-          eventId="jt"
-          eventName="Javelin Throw"
-          perf={state?.jt?.perf}
-          points={state?.jt?.points}
-          updateScore={updateScore}
-        />
-      </div>
-      <div className={eventWrapClass}>
-        <TFEventScore
-          eventId="r800m"
-          eventName="800 Meters"
-          perf={state?.r800m?.perf}
-          points={state?.r800m?.points}
-          updateScore={updateScore}
-        />
+    <div
+      ref={containerRef}
+      data-hep-container-size={getContainerSizeName(containerSize?.width)}
+      className={styles['heptathlon-score']}
+    >
+      <TotalScore value={totalScore} />
+      <div className={styles['event-inputs']}>
+        <div className={styles['day-one']}>
+          <h3 className={styles['day-header']}>Day 1</h3>
+          <div className={styles['event-wrap']}>
+            <TFEventScore
+              eventId="r100h"
+              eventName="100 Hurdles"
+              perf={state?.r100h?.perf}
+              points={state?.r100h?.points}
+              updateScore={updateScore}
+            />
+          </div>
+          <div className={styles['event-wrap']}>
+            <TFEventScore
+              eventId="hj"
+              eventName="High Jump"
+              perf={state?.hj?.perf}
+              points={state?.hj?.points}
+              updateScore={updateScore}
+            />
+          </div>
+          <div className={styles['event-wrap']}>
+            <TFEventScore
+              eventId="sp"
+              eventName="Shot Put"
+              perf={state?.sp?.perf}
+              points={state?.sp?.points}
+              updateScore={updateScore}
+            />
+          </div>
+          <div className={styles['event-wrap']}>
+            <TFEventScore
+              eventId="r200m"
+              eventName="200 Meters"
+              perf={state?.r200m?.perf}
+              points={state?.r200m?.points}
+              updateScore={updateScore}
+            />
+          </div>
+        </div>
+        <div className={styles['day-two']}>
+          <h3 className={styles['day-header']}>Day 2</h3>
+          <div className={styles['event-wrap']}>
+            <TFEventScore
+              eventId="lj"
+              eventName="Long Jump"
+              perf={state?.lj?.perf}
+              points={state?.lj?.points}
+              updateScore={updateScore}
+            />
+          </div>
+          <div className={styles['event-wrap']}>
+            <TFEventScore
+              eventId="jt"
+              eventName="Javelin Throw"
+              perf={state?.jt?.perf}
+              points={state?.jt?.points}
+              updateScore={updateScore}
+            />
+          </div>
+          <div className={styles['event-wrap']}>
+            <TFEventScore
+              eventId="r800m"
+              eventName="800 Meters"
+              perf={state?.r800m?.perf}
+              points={state?.r800m?.points}
+              updateScore={updateScore}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

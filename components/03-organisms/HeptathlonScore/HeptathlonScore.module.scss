@@ -1,0 +1,32 @@
+.heptathlon-score {
+  max-width: 800px;
+}
+
+.event-inputs {
+  display: flex;
+  flex-direction: column;
+
+  .day-one,
+  .day-two {
+    flex: 1;
+
+    &:first-child {
+      margin: 0;
+    }
+  }
+}
+
+.event-wrap {
+  margin-bottom: 1rem;
+}
+
+[data-hep-container-size='large'] {
+  .event-inputs {
+    flex-direction: row;
+    justify-content: space-between;
+
+    .day-one {
+      margin-right: 1rem;
+    }
+  }
+}

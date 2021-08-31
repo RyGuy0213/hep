@@ -11,3 +11,4 @@ export default {
 export const Default: ComponentStory<typeof TFEventScore> = () => {
   return <TFEventScore eventName="Event #1" perf={14.1} points={100} />;
 };
+Default.storyName = 'TFEventScore';
