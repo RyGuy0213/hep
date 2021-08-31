@@ -12,7 +12,12 @@ export const Default: ComponentStory<typeof Card> = () => {
     <Card
       heading="This is a card"
       media={<img src="https://placeimg.com/1600/900/nature"></img>}
-      text="Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet."
+      content={
+        <p>
+          Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum
+          dolor sit amet
+        </p>
+      }
     />
   );
 };

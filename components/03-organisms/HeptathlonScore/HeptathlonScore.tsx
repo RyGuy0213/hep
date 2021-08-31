@@ -106,7 +106,6 @@ const scoresReducer = (
 
 const HeptathlonScore: FC<HeptathlonScoreProps> = ({ eventScores }) => {
   const [containerRef, containerSize] = useDivResizeRef();
-
   const [state, dispatch] = useReducer(
     scoresReducer,
     eventScores,
