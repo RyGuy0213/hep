@@ -37,8 +37,8 @@ const techCards = [
     ),
     content: (
       <p>
-        Javascript is a great language. It's even better when it's strongly
-        typed.
+        Javascript is a great language. It&apos;s even better when it&apos;s
+        strongly typed.
       </p>
     ),
   },

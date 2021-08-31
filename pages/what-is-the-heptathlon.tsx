@@ -48,10 +48,11 @@ const eventCards = [
     ),
     content: (
       <p>
-        A women\'s shot has a mass of four kilograms. This event requires the
-        most strength of the seven disciplines. Athletes who specialize in the
-        shot put often use a rotational technique to hurl the ball, but
-        heptathletes almost exclusively use a linear technique called a "glide".
+        A women&apos;s shot has a mass of four kilograms. This event requires
+        the most strength of the seven disciplines. Athletes who specialize in
+        the shot put often use a rotational technique to hurl the ball, but
+        heptathletes almost exclusively use a linear technique called a
+        &lsquo;glide&rsquo;.
       </p>
     ),
   },
@@ -80,9 +81,10 @@ const eventCards = [
     ),
     content: (
       <p>
-        The long jump involves running at very high speeds and launching one's
-        body into a sand landing area. The athlete must take off from behind the
-        designated takeoff line, otherwise the attempt will result in a foul.
+        The long jump involves running at very high speeds and launching
+        one&apos;s body into a sand landing area. The athlete must take off from
+        behind the designated takeoff line, otherwise the attempt will result in
+        a foul.
       </p>
     ),
   },
@@ -97,9 +99,9 @@ const eventCards = [
     ),
     content: (
       <p>
-        The women's javelin has a mass of 600 grams and a length between 220 and
-        230 centimeters. It is arguably the discipline that is the hardest on
-        the athlete's body.
+        The women&apos;s javelin has a mass of 600 grams and a length between
+        220 and 230 centimeters. It is arguably the discipline that is the
+        hardest on the athlete&apos;s body.
       </p>
     ),
   },
@@ -116,7 +118,7 @@ const eventCards = [
         Two laps around a standard track, this seventh and final event is
         effectively a half-mile race. It requires not only the endurance to
         finish the race, but the endurance to finish the race at the end of two
-        very difficult days. This was my wife's best event. She won this
+        very difficult days. This was my wife&apos;s best event. She won this
         discipline at the Olympic Games.
       </p>
     ),

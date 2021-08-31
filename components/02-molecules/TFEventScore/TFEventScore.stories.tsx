@@ -9,6 +9,16 @@ export default {
 } as ComponentMeta<typeof TFEventScore>;
 
 export const Default: ComponentStory<typeof TFEventScore> = () => {
-  return <TFEventScore eventName="Event #1" perf={14.1} points={100} />;
+  return (
+    <TFEventScore
+      eventId="r100h"
+      eventName="100 Hurdles"
+      perf="13.39"
+      points="1066"
+      updateScore={() => {
+        return;
+      }}
+    />
+  );
 };
 Default.storyName = 'TFEventScore';

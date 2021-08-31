@@ -8,6 +8,6 @@ export default {
 } as ComponentMeta<typeof Page>;
 
 export const Default: ComponentStory<typeof Page> = () => {
-  return <Page>Page Content</Page>;
+  return <Page id={0}>Page Content</Page>;
 };
 Default.storyName = 'Page';
