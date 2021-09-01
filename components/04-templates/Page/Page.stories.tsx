@@ -7,7 +7,39 @@ export default {
   component: Page,
 } as ComponentMeta<typeof Page>;
 
+const links = [
+  {
+    id: 0,
+    url: '/',
+    text: 'Page 1',
+  },
+  {
+    id: 1,
+    url: '/',
+    text: 'Page 2',
+  },
+  {
+    id: 2,
+    url: '/',
+    text: 'Page 3',
+  },
+  {
+    id: 3,
+    url: '/',
+    text: 'Page 4',
+  },
+];
+
 export const Default: ComponentStory<typeof Page> = () => {
-  return <Page id={0}>Page Content</Page>;
+  return (
+    <Page
+      id={0}
+      links={links}
+      siteTitle="Site Title"
+      siteSubtitle="Site subtitle"
+    >
+      Page Content
+    </Page>
+  );
 };
 Default.storyName = 'Page';

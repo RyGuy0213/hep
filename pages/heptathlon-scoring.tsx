@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import Page from '../components/04-templates/Page/Page';
+import HepPage from '../components/04-templates/Page/HepPage';
 import HeptathlonScore from '../components/03-organisms/HeptathlonScore/HeptathlonScore';
 
 const HeptathlonScoring: NextPage = () => {
@@ -34,7 +34,7 @@ const HeptathlonScoring: NextPage = () => {
     },
   };
   return (
-    <Page id={2}>
+    <HepPage id={2}>
       <h1>Heptathlon Scoring</h1>
       <p className="line-height-sans-6">
         Scoring in the heptathlon is standardized. That is, the score an athlete
@@ -74,7 +74,7 @@ const HeptathlonScoring: NextPage = () => {
       <div className="margin-top-5">
         <HeptathlonScore eventScores={eventScores} />
       </div>
-    </Page>
+    </HepPage>
   );
 };
 

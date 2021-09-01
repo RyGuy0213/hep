@@ -1,9 +1,9 @@
 import type { NextPage } from 'next';
-import Page from '../components/04-templates/Page/Page';
+import HepPage from '../components/04-templates/Page/HepPage';
 
 const Home: NextPage = () => {
   return (
-    <Page id={0}>
+    <HepPage id={0}>
       <h1>Our Olympic Dream</h1>
       <img
         alt="Heather Miller-Koch long jumping"
@@ -27,7 +27,7 @@ const Home: NextPage = () => {
       <p className="line-height-sans-6">
         The heptathlon changed my life, and I want to tell you more about it!
       </p>
-    </Page>
+    </HepPage>
   );
 };
 

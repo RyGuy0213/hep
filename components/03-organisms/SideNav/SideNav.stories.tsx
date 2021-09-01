@@ -11,12 +11,17 @@ const links = [
   {
     id: 0,
     text: 'Page 1',
-    url: 'https://www.google.com',
+    url: '/',
   },
   {
     id: 1,
     text: 'Page 2',
-    url: 'https://www.google.com',
+    url: '/',
+  },
+  {
+    id: 2,
+    text: 'Page 3',
+    url: '/',
   },
 ];
 

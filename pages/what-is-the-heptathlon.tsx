@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import Page from '../components/04-templates/Page/Page';
+import HepPage from '../components/04-templates/Page/HepPage';
 import SummaryBox from '../components/02-molecules/SummaryBox/SummaryBox';
 import CardGrid from '../components/03-organisms/CardGrid/CardGrid';
 
@@ -32,7 +32,7 @@ const eventCards = [
     content: (
       <p>
         The high jump involves jumping over a rigid bar onto a soft landing mat.
-        The bar continues to go up 3cm at a time untill all athletes have been
+        The bar continues to go up 3cm at a time until all athletes have been
         eliminated. An athlete remains in the competition until she has three
         consecutive misses.
       </p>
@@ -127,7 +127,7 @@ const eventCards = [
 
 const WhatIs: NextPage = () => {
   return (
-    <Page id={1}>
+    <HepPage id={1}>
       <h1>What is the Heptathlon?</h1>
       <div className="margin-bottom-4">
         <SummaryBox heading="Summary">
@@ -152,7 +152,7 @@ const WhatIs: NextPage = () => {
       <div>
         <CardGrid cards={eventCards} />
       </div>
-    </Page>
+    </HepPage>
   );
 };
 

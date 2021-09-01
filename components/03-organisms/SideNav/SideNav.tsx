@@ -1,7 +1,13 @@
 import { FC } from 'react';
 
+export type SideNavLinkProps = {
+  id: number;
+  text: string;
+  url: string;
+};
+
 export type SideNavProps = {
-  links: { id: number; text: string; url: string }[];
+  links: SideNavLinkProps[];
   currentPageId: number;
 };
 

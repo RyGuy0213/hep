@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import { Default } from '../components/02-molecules/TFEventScore/TFEventScore.stories';
 import CardGrid from '../components/03-organisms/CardGrid/CardGrid';
-import Page from '../components/04-templates/Page/Page';
+import HepPage from '../components/04-templates/Page/HepPage';
 
 const techCards = [
   {
@@ -90,10 +90,10 @@ const techCards = [
 
 const SiteBuildInfo: NextPage = () => {
   return (
-    <Page id={3}>
+    <HepPage id={3}>
       <h1>Under the Hood</h1>
       <CardGrid cards={techCards} />
-    </Page>
+    </HepPage>
   );
 };
 

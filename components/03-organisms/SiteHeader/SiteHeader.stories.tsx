@@ -8,6 +8,6 @@ export default {
 } as ComponentMeta<typeof SiteHeader>;
 
 export const Default: ComponentStory<typeof SiteHeader> = () => {
-  return <SiteHeader />;
+  return <SiteHeader title="Site title" subtitle="Site subtitle" />;
 };
 Default.storyName = 'SiteHeader';
