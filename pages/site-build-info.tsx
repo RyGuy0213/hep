@@ -24,7 +24,7 @@ const techCards = [
         style={{ height: '200px' }}
       />
     ),
-    content: <p>This React application is built on top of Next.js.</p>,
+    content: <p>This React application is built with Next.js.</p>,
   },
   {
     heading: 'Typescript',
@@ -37,7 +37,7 @@ const techCards = [
     ),
     content: (
       <p>
-        Javascript is a great language. It&apos;s even better when it&apos;s
+        JavaScript is a great language. It&apos;s even better when it&apos;s
         strongly typed.
       </p>
     ),
@@ -65,7 +65,7 @@ const techCards = [
     content: (
       <ul>
         <li>
-          Deployed on <b>Vercel</b>
+          Deployed with <b>Vercel</b>
         </li>
         <li>
           Unit testing with <b>Jest</b>
@@ -74,7 +74,14 @@ const techCards = [
           <b>CSS Modules</b>
         </li>
         <li>
-          <b>Storybook</b> component library
+          <b>Storybook</b> component library (view{' '}
+          <a
+            className="usa-link--external"
+            href="https://ryguy0213.github.io/hep/storybook"
+          >
+            here
+          </a>
+          )
         </li>
       </ul>
     ),

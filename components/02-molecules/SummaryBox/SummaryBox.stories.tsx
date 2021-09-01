@@ -14,7 +14,7 @@ export const Default: ComponentStory<typeof SummaryBox> = () => {
         <li>
           Here is more information about the &nbsp;
           <a
-            className="usa-summary-box__link"
+            className="usa-summary-box__link usa-link--external"
             href="https://en.wikipedia.org/wiki/Heptathlon"
           >
             heptathlon

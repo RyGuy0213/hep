@@ -132,7 +132,10 @@ const WhatIs: NextPage = () => {
       <div className="margin-bottom-4">
         <SummaryBox heading="Summary">
           <ul className="usa-list">
-            <li>The heptathlon consists of seven (7) separate disciplines.</li>
+            <li>
+              The heptathlon consists of seven separate disciplines contested
+              over the course of two days.
+            </li>
             <li>
               Here is more information about the &nbsp;
               <a

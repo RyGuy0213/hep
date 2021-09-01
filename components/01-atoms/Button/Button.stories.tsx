@@ -13,6 +13,11 @@ export default {
       },
       options: ['button', 'submit'],
     },
+    variation: {
+      table: {
+        disable: true,
+      },
+    },
   },
 } as ComponentMeta<typeof Button>;
 

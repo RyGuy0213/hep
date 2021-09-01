@@ -8,12 +8,6 @@ export default {
 } as ComponentMeta<typeof HeptathlonScore>;
 
 export const Default: ComponentStory<typeof HeptathlonScore> = () => {
-  const eventScores = {
-    r100h: {
-      perf: '10.1',
-      points: '100',
-    },
-  };
-  return <HeptathlonScore eventScores={eventScores} />;
+  return <HeptathlonScore />;
 };
 Default.storyName = 'HeptathlonScore';
