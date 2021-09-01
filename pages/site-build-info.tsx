@@ -56,7 +56,7 @@ const techCards = [
         This project incorporates just a few pieces from the U.S. Web Design
         System. It is not intended to completely comply with USWDS or 508
         standards, but rather simply demonstrate an ability to jump into a tool
-        and utilize a few pieces for short/fast demo project.
+        and utilize a few pieces for quick prototype project.
       </p>
     ),
   },
