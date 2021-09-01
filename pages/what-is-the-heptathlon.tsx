@@ -5,7 +5,7 @@ import CardGrid from '../components/03-organisms/CardGrid/CardGrid';
 
 const eventCards = [
   {
-    heading: '100 Hurdles',
+    heading: '100 Meter Hurdles',
     media: (
       <img
         alt="Heather Miller-Koch hurdling"
