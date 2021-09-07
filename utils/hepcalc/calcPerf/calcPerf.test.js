@@ -76,3 +76,8 @@ test('Blank input 800M', () => {
 test('Negative input 800M', () => {
   expect(calcPerfModule.calcPerf('r800m', '-832')).toBe('0');
 });
+
+// Bad Event Name
+test('Bad event name', () => {
+  expect(calcPerfModule.calcPerf('this-is-a-bad-event-name', '-832')).toBe('0');
+});
